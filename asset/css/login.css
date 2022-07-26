@@ -1,0 +1,117 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  background: #ecf0f3; 
+
+
+
+}
+.login-div{
+  width: 430px;
+  height: 600px;
+  box-shadow: 13px 13px 20px #cbced1,-13px -13px 20px #fff;
+/* background: linear-gradient(to right,#00093c,#2d0b00); */
+background: #ecf0f3;
+border-radius: 40px;
+padding: 60px 35px 35px 35px;
+overflow: hidden;
+position: relative;
+opacity: 0.9;
+}
+.logo{
+  width: 100px;
+  height: 100px;
+  background: url("../img/android-icon-72x72-removebg-preview__1_-removebg-preview\ \(2\).png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  box-shadow: 0px 0px 2px #5f5f5f,0px 0px 0px 5px #ecf0f3,8px 8px 15px #a7aaaf,-8px -8px 15px #fff;
+  border-radius: 50%;
+  position: relative;
+  top:-48px;
+
+
+}
+.title{
+  text-align: center;
+  font-size: 20px ;
+  color:#000 ;
+  margin-top: 18px;
+  letter-spacing: 0.5px;
+  position: relative;
+  top: -57px;
+
+}
+.sub-tittle{
+  text-align: center;
+  font-size: 15px;
+  color: #000;
+  margin-top: 8px;
+  letter-spacing: 2px;
+  position: relative;
+  top: -64px;
+}
+.form-container{
+  width: 100%;
+  padding: 75px 5px 5px 5px;
+  position: relative;
+  top: -50px;
+
+  width: 100%;
+  overflow: hidden;
+}
+.form-container input{
+  border: none;
+  outline: none;
+  background: none; 
+  font-size: 18px;
+  color: #555;
+  padding: 20px 10px 20px 5px;
+}
+.username,.password{
+  margin-bottom: 30px;
+border-radius: 25px;
+box-shadow:inset 8px 8px 8px #cbced1,inset -8px -8px 8px #fff ;  
+}
+.username i,.password i{
+  height: 22px;
+  margin:0px 10px -3px 25px;
+  color: black;
+}
+.pass-link{
+  box-shadow: 8px 8px 8px #cbced1, -8px -8px 8px #fff ;
+  width: fit-content;
+  height: 20px;
+  font-size: 12px;
+margin-left: 20px;
+   
+}
+.pass-link a{
+  text-decoration: none;
+  color: #555;
+
+}
+.sign-btn{
+  box-shadow: 8px 8px 8px #cbced1, -8px -8px 8px #fff ;
+ background: #033662;
+ outline: none;
+ border: none;
+ cursor: pointer;
+ width: 100%;
+height: 40px;
+border-radius: 30px;
+margin: 20px 0;
+color: #fff;
+text-transform: capitalize;
+
+}
