@@ -794,3 +794,19 @@ let hapustoko=$(".hapustoko").on('click',function(e){
         }
     })
 })
+let status=$('.status').on('change',function(){
+let id=$(this).data('id');
+let respon=$(this).val();
+let url=$(this).data('url');
+$.ajax({
+    url:url,
+    type:'post',
+    data:{
+        id:id,
+        respon:respon
+    },
+    success:function(){
+        location.reload();
+    }
+})
+})

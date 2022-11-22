@@ -9,6 +9,7 @@
             </div>
         </div><!-- /.container-fluid -->
         <div class="req" data-text="<?= $this->session->flashdata('message'); ?>"></div>
+
     </section>
     <section class="content">
         <div class="container-fluid">
@@ -43,7 +44,16 @@
                                             <td><?= $t['jumlahpesanan']  ?></td>
                                             <td><?= $t['harga']  ?></td>
                                             <td><?= $t['tanggal']  ?></td>
-                                            <td></td>
+                                            <td>
+                                                <div class=" form-group">
+                                                    <select name="sub" id="sub" class="form-control status" data-id="<?= $t['id'] ?>" data-url="<?= base_url('config/status') . "?id=" . $_GET['id'] ?>">
+                                                        <option value=""><?= $t['status']; ?></option>
+                                                        <?php foreach ($status as $s) : ?>
+                                                            <option value="<?= $s['id'] ?>" data-id="<?= $t['id'] ?>"><?= $s['status']  ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </td>
                                             <td>
                                                 <a href="<?= base_url('config/deletepesanan') . "?id=" . $_GET['id']  ?>" class="badge badge-danger deletepesanan" data-id="<?= $t['id'] ?>">Hapus</a>
                                             </td>
@@ -85,6 +95,7 @@
                                         <th>Jumalah Pembelian</th>
                                         <th>Harga</th>
                                         <th>Tanggal</th>
+                                        <th>Status</th>
 
                                     </tr>
                                 </thead>
@@ -99,7 +110,7 @@
                                             <td><?= $t['harga']  ?> </td>
 
                                             <td><?= $t['tanggal']  ?></td>
-
+                                            <td><?= $t['status']; ?></td>
                                         </tr>
                                         <?php $i++ ?>
                                     <?php endforeach; ?>
@@ -112,7 +123,7 @@
                                         <th>Jumalah Pembelian</th>
                                         <th>Harga</th>
                                         <th>Tanggal</th>
-
+                                        <th>Status</th>
                                     </tr>
                                 </tfoot>
                             </table>

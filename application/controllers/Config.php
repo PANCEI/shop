@@ -232,7 +232,8 @@ class Config extends CI_Controller
         ];
         if ($this->session->userdata('hak') == 3) {
             $data += [
-                "pesanan" => $this->Toko_m->pesanantoko($data['user']['id'])
+                "pesanan" => $this->Toko_m->pesanantoko($data['user']['id']),
+                "status" => $this->Toko_m->getStatus()
             ];
             $this->load->view('templates/header', $data);
             $this->load->view('templates/navbar');
@@ -248,6 +249,14 @@ class Config extends CI_Controller
             $this->load->view('templates/sidebar');
             $this->load->view('toko/pesanan');
             $this->load->view('templates/footer');
+        }
+    }
+    function status()
+    {
+        $id = $this->Toko_m->status();
+        $respon = $this->input->post('respon');
+        if ($id) {
+            $this->session->set_flashdata('message', "Status Pesanan Telah Di Ubah");
         }
     }
     function deletepesanan()

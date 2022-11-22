@@ -314,8 +314,17 @@ class Toko_m extends CI_Model
         $toko = "SELECT toko.id FROM `user` JOIN toko ON user.id=toko.id_user WHERE user.id=$id";
         $datatoko = $this->db->query($toko)->row_array();
         $idtoko = $datatoko['id'];
-        $query = "SELECT pemesanan.id,`jumlahpesanan` ,pemesanan.harga,user.nama as pembeli,nama_barang,pemesanan.tanggal FROM pemesanan JOIN jualan ON jualan.id=pemesanan.id_jualan JOIN toko ON toko.id=pemesanan.id_toko JOIN `user` ON `user`.id=pemesanan.id_user WHERE toko.id=$idtoko";
+        $query = "SELECT pemesanan.id,`jumlahpesanan` ,pemesanan.harga,user.nama as pembeli,nama_barang,pemesanan.tanggal,status FROM pemesanan JOIN jualan ON jualan.id=pemesanan.id_jualan JOIN toko ON toko.id=pemesanan.id_toko JOIN `user` ON `user`.id=pemesanan.id_user JOIN status_pesanan ON status_pesanan.id=pemesanan.id_status WHERE toko.id=$idtoko ORDER BY pemesanan.id";
         return $this->db->query($query)->result_array();
+    }
+    function status()
+    {
+        $id = $this->input->post('id');
+        $respon = $this->input->post('respon');
+        $this->db->where('id', $id);
+        $this->db->set('id_status', $respon);
+        $this->db->update('pemesanan');
+        return $this->db->affected_rows();
     }
     function pesanandelete()
     {
@@ -415,5 +424,10 @@ class Toko_m extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('user');
         return $this->db->affected_rows();
+    }
+    function getStatus()
+    {
+        $query = "SELECT * FROM status_pesanan WHERE id !=1";
+        return $this->db->query($query)->result_array();
     }
 }
