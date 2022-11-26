@@ -803,7 +803,7 @@ $.ajax({
     type:'post',
     data:{
         id:id,
-        respon:respon
+        respon:respon   
     },
     success:function(){
         location.reload();
